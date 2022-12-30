@@ -4,7 +4,6 @@ import MessageSender from './message-sender/MessageSender'
 import s2 from '../../s1-main/App.module.css'
 import FriendMessage from './friend-message/FriendMessage'
 import avatar from './avatar.png'
-import avatar2 from './PngItem_6275754.png'
 
 /*
 * 1 - описать тип MessageType
@@ -26,6 +25,18 @@ export type MessageType = {
             time: string, // можно менять
         }
 }
+//
+// export type IdType = {
+//     id: number
+// }
+// export type UserType = {
+//     id: number
+// }
+// export type MessagesType = {
+//     id: number
+// }
+
+
 
 // структуру объекта не менять
 export const message0: MessageType = {
@@ -42,11 +53,11 @@ export const message0: MessageType = {
 export const friendMessage0: MessageType = {
     id: 100,
     user: {
-        avatar: avatar2, // можно менять
-        name: 'Vasek', // можно менять
+        avatar: avatar, // можно менять
+        name: 'Ivan', // можно менять
     },
     message: {
-        text: 'зеркальное сообщение для тренировки css', // можно менять
+        text: 'Hello, how are you, what did you do yesterday?', // можно менять
         time: '22:00', // можно менять
     },
 }
@@ -54,17 +65,19 @@ export const friendMessage0: MessageType = {
 const HW1 = () => {
     return (
         <div id={'hw1'}>
-            <div className={s2.hwTitle}>Hometask #1</div>
+            <div className={s2.hwTitle}>Hometask#1</div>
             <hr style={{marginBottom: '20px'}}></hr>
             <div className={s2.hw}>
                 {/*проверка отображения (не менять)*/}
                 <div>
                     <Message message={message0} />
                     <FriendMessage message={friendMessage0} />
+                    <Message message={message0} />
+
                 </div>
 
                 {/*для автоматической проверки дз (не менять)*/}
-                <MessageSender M={friendMessage0} />
+                <MessageSender M={Message} />
             </div>
         </div>
     )
